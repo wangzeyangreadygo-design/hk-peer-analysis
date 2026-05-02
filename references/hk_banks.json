@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "total_tracked": 30,
+    "breakdown": {"traditional": 22, "digital": 8},
+    "hkma_total_locally_incorporated": 32,
+    "excluded_as_incomparable": [
+      {"en": "Morgan Stanley Bank Asia Limited", "zh": "摩根士丹利银行亚洲", "reason": "pure wholesale/investment banking, no retail/corporate comparable to CMB Wing Lung"},
+      {"en": "Bank of Dongguan International Limited", "zh": "东莞银行(国际)", "reason": "mainland city-commercial bank's HK wholesale arm, no retail"}
+    ],
+    "recent_changes": [
+      {"type": "rename", "effective": "2026-04-22", "old_en": "Airstar Bank Limited", "new_en": "Ele Bank Limited", "old_zh": "天星银行", "new_zh": "象象银行", "note": "Futu/小米 rebrand after Futu became controlling shareholder"},
+      {"type": "rename", "effective": "2026-03", "old_en": "PAO Bank Limited", "new_en": "Ping An Digital Bank (International) Limited", "old_zh": "平安壹账通银行(香港)", "new_zh": "平安数字银行(国际)"}
+    ],
+    "last_verified": "2026-05-02",
+    "source": "HKMA list_of_lb.xls / list_of_banks.xls (at 2026-03-31) + post-March rename news",
+    "register_url": "https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-ais-and-lros/",
+    "xls_url_en": "https://www.hkma.gov.hk/media/eng/doc/key-functions/banking-stability/banking-policy-and-supervision/list_of_lb.xls",
+    "xls_url_zh": "https://www.hkma.gov.hk/media/chi/doc/key-functions/banking-stability/banking-policy-and-supervision/list_of_banks.xls"
+  },
+  "banks": [
+    {"id": 1, "en": "HSBC (HK)", "zh": "香港上海汇丰银行", "hkma_legal": "The Hongkong and Shanghai Banking Corporation Limited", "category": "note-issuing", "sub_category": "foreign", "ir": "https://www.about.hsbc.com.hk/investors", "hkex": "parent 0005.HK", "tier": 1, "priority": "quarterly"},
+    {"id": 2, "en": "Standard Chartered (HK)", "zh": "渣打银行(香港)", "hkma_legal": "Standard Chartered Bank (Hong Kong) Limited", "category": "note-issuing", "sub_category": "foreign", "ir": "https://www.sc.com/hk/about-us/investor-relations/", "hkex": "parent 2888.HK", "tier": 1, "priority": "quarterly"},
+    {"id": 3, "en": "Bank of China (HK)", "zh": "中国银行(香港)", "hkma_legal": "Bank of China (Hong Kong) Limited", "category": "note-issuing", "sub_category": "mainland", "ir": "https://www.bochk.com/en/aboutus/irelations.html", "hkex": "2388.HK", "tier": 1, "priority": "quarterly"},
+    {"id": 4, "en": "Hang Seng Bank", "zh": "恒生银行", "hkma_legal": "Hang Seng Bank, Limited", "category": "major-domestic", "sub_category": "hk-local", "ir": "https://www.hangseng.com/en-hk/about-us/investor-relations/", "hkex": "0011.HK", "tier": 1, "priority": "quarterly"},
+    {"id": 5, "en": "Bank of East Asia", "zh": "东亚银行", "hkma_legal": "The Bank of East Asia, Limited", "category": "major-domestic", "sub_category": "hk-local", "ir": "https://www.hkbea.com/html/en/bea-about-us-investor-relations.html", "hkex": "0023.HK", "tier": 2, "priority": "semi-annual"},
+    {"id": 6, "en": "Dah Sing Bank", "zh": "大新银行", "hkma_legal": "Dah Sing Bank, Limited", "category": "major-domestic", "sub_category": "hk-local", "ir": "https://www.dahsing.com/en/html/about/ir.html", "hkex": "parent 0440.HK", "tier": 2, "priority": "semi-annual"},
+    {"id": 7, "en": "Shanghai Commercial Bank", "zh": "上海商业银行", "hkma_legal": "Shanghai Commercial Bank Limited", "category": "major-domestic", "sub_category": "hk-local", "ir": "https://www.shacombank.com.hk/eng/about/fininfo/index.jsp", "hkex": "unlisted", "tier": 2, "priority": "semi-annual"},
+    {"id": 8, "en": "CMB Wing Lung Bank", "zh": "招商永隆银行", "hkma_legal": "CMB Wing Lung Bank Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.cmbwinglungbank.com/en/aboutus/investor/", "hkex": "parent 3968.HK", "tier": 0, "is_us": true, "priority": "self"},
+    {"id": 9, "en": "Chong Hing Bank", "zh": "创兴银行", "hkma_legal": "Chong Hing Bank Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.chbank.com/en/personal/aboutus/investor/index.shtml", "hkex": "unlisted", "tier": 2, "priority": "semi-annual"},
+    {"id": 10, "en": "Nanyang Commercial Bank", "zh": "南洋商业银行", "hkma_legal": "Nanyang Commercial Bank, Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.ncb.com.hk/nanyang_bank/aboutus/en/financial-information.html", "hkex": "unlisted", "tier": 2, "priority": "semi-annual"},
+    {"id": 11, "en": "ICBC (Asia)", "zh": "中国工商银行(亚洲)", "hkma_legal": "Industrial and Commercial Bank of China (Asia) Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.icbcasia.com/", "hkex": "unlisted", "tier": 2, "priority": "semi-annual"},
+    {"id": 12, "en": "CCB (Asia)", "zh": "中国建设银行(亚洲)", "hkma_legal": "China Construction Bank (Asia) Corporation Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.asia.ccb.com/hongkong_en/aboutus/announcement.html", "hkex": "parent 0939.HK", "tier": 2, "priority": "semi-annual"},
+    {"id": 13, "en": "BOCOM (HK)", "zh": "交通银行(香港)", "hkma_legal": "Bank of Communications (Hong Kong) Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.hk.bankcomm.com/BOCOMHK/AboutUs/InvestorRelations/", "hkex": "parent 3328.HK", "tier": 2, "priority": "semi-annual"},
+    {"id": 14, "en": "China CITIC Bank International", "zh": "中信银行(国际)", "hkma_legal": "China CITIC Bank International Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.cncbinternational.com/about-us/investor-relations/en/index.jsp", "hkex": "unlisted", "tier": 2, "priority": "semi-annual"},
+    {"id": 15, "en": "Chiyu Banking Corp", "zh": "集友银行", "hkma_legal": "Chiyu Banking Corporation Limited", "category": "mainland-subsidiary", "sub_category": "mainland", "ir": "https://www.chiyubank.com/en/about-us/investor-relations.html", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 16, "en": "DBS Bank (HK)", "zh": "星展银行(香港)", "hkma_legal": "DBS Bank (Hong Kong) Limited", "category": "foreign-subsidiary", "sub_category": "foreign", "ir": "https://www.dbs.com/investors/default.page", "hkex": "parent SGX:D05", "tier": 2, "priority": "semi-annual"},
+    {"id": 17, "en": "OCBC Bank (HK)", "zh": "华侨银行(香港)", "hkma_legal": "OCBC Bank (Hong Kong) Limited", "category": "foreign-subsidiary", "sub_category": "foreign", "ir": "https://www.ocbc.com.hk/personal-banking/about-us/regulatory-disclosures.html", "hkex": "parent SGX:O39", "tier": 2, "priority": "semi-annual", "note": "former Wing Hang Bank"},
+    {"id": 18, "en": "Citibank (HK)", "zh": "花旗银行(香港)", "hkma_legal": "Citibank (Hong Kong) Limited", "category": "foreign-subsidiary", "sub_category": "foreign", "ir": "https://www.citibank.com.hk/english/info/regulatory-disclosures.htm", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 19, "en": "Fubon Bank (HK)", "zh": "富邦银行(香港)", "hkma_legal": "Fubon Bank (Hong Kong) Limited", "category": "foreign-subsidiary", "sub_category": "hk-local", "ir": "https://www.fubonbank.com.hk/en/about/investor.html", "hkex": "parent TWSE:2881", "tier": 3, "priority": "annual"},
+    {"id": 20, "en": "Public Bank (HK)", "zh": "大众银行(香港)", "hkma_legal": "Public Bank (Hong Kong) Limited", "category": "foreign-subsidiary", "sub_category": "hk-local", "ir": "https://www.publicbank.com.hk/en/about-us/investor-relations", "hkex": "parent KLSE:PBBANK", "tier": 3, "priority": "annual"},
+    {"id": 21, "en": "Tai Sang Bank", "zh": "大生银行", "hkma_legal": "Tai Sang Bank Limited", "category": "other-family", "sub_category": "hk-local", "ir": "https://www.taisangbank.com/", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 22, "en": "Tai Yau Bank", "zh": "大有银行", "hkma_legal": "Tai Yau Bank, Limited", "category": "other-family", "sub_category": "hk-local", "ir": "https://www.taiyaubank.com.hk/", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 23, "en": "Ele Bank", "zh": "象象银行", "hkma_legal": "Ele Bank Limited (formerly Airstar Bank Limited until 2026-04-22)", "category": "virtual", "sub_category": "virtual", "ir": "https://www.elebank.com/", "hkex": "unlisted", "tier": 3, "priority": "annual", "note": "Futu Holdings controlling shareholder post-2025 rights issue; rebranded from Airstar on 2026-04-22"},
+    {"id": 24, "en": "Ant Bank (HK)", "zh": "蚂蚁银行(香港)", "hkma_legal": "Ant Bank (Hong Kong) Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://www.antbank.hk/en/about-us/about-ant-bank", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 25, "en": "Fusion Bank", "zh": "富融银行", "hkma_legal": "Fusion Bank Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://www.fusionbank.com/en/about-us", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 26, "en": "Livi Bank", "zh": "理慧银行", "hkma_legal": "Livi Bank Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://www.livibank.com/en/about-us/overview.html", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 27, "en": "Mox Bank", "zh": "Mox Bank", "hkma_legal": "Mox Bank Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://mox.com/about-us/", "hkex": "parent 2888.HK", "tier": 3, "priority": "annual"},
+    {"id": 28, "en": "Ping An Digital Bank (Int'l)", "zh": "平安数字银行(国际)", "hkma_legal": "Ping An Digital Bank (International) Limited (formerly PAO Bank)", "category": "virtual", "sub_category": "virtual", "ir": "https://www.paob.com.hk/", "hkex": "parent 0318.HK (Ping An)", "tier": 3, "priority": "annual"},
+    {"id": 29, "en": "WeLab Bank", "zh": "汇立银行", "hkma_legal": "WeLab Bank Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://www.welab.bank/en/about-us", "hkex": "unlisted", "tier": 3, "priority": "annual"},
+    {"id": 30, "en": "ZA Bank", "zh": "众安银行", "hkma_legal": "ZA Bank Limited", "category": "virtual", "sub_category": "virtual", "ir": "https://bank.za.group/en/about", "hkex": "parent 6060.HK", "tier": 3, "priority": "annual"}
+  ],
+  "preferred_disclosure_source": "HKEX News (https://www1.hkexnews.hk/) — mandatory same-day filing for listed issuers. Non-listed banks: each bank's IR page. Fallback: HKMA disclosure.",
+  "tier_definitions": {
+    "0": "Self (CMB Wing Lung) — baseline for comparison",
+    "1": "Priority 1 — Note-issuing + Hang Seng. Direct strategic peers. Analyze every interim/annual report.",
+    "2": "Priority 2 — Tier-1 domestic + mainland subsidiaries + key foreign subs. Semi-annual deep dive.",
+    "3": "Priority 3 — Small family/foreign/virtual banks. Annual monitoring only."
+  }
+}
