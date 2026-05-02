@@ -48,16 +48,21 @@ Bilingual KPI definitions and per-bank reporting conventions. Use this as the ca
 | Open banking / API partners | 开放银行/API 接入方 | IADS 参与行有 28 家, BOCHK/Hang Seng/HSBC/SCB 都是 |
 | Virtual currency / tokenization | 数字货币/代币化 | 数码港元先导计划、e-HKD、Project Ensemble |
 
-## Sensitive terms — always mask with `**`
+## Handling CMB Wing Lung / 隆港 figures
 
-Any number, rank, or qualitative claim about the following entities that the user has not explicitly provided must be masked as `**`:
+These entities refer to the user's own bank:
 - 招商永隆 / 永隆 / CMB Wing Lung
 - 港分 / 招行香港分行 / CMB HK Branch
 - 隆港 (= 永隆 + 港分 combined)
 - 我行 / 本行
 
-Example:
-> 恒生零售非息同比增长 37%，隆港零售非息同比增长 **（永隆**，港分**）
+**Rule:** use real figures the user supplied (chat, attached file, earlier turn, or internal data). Do **not** fabricate. When no real figure is available, leave a placeholder (`{{待填}}` or `**`) for the strategy team to fill from internal systems downstream.
+
+Example — user supplied real data:
+> 恒生零售非息同比增长 37%，隆港零售非息同比增长 8.5%（永隆 6.2%，港分 10.1%）
+
+Example — user did not supply figures:
+> 恒生零售非息同比增长 37%，隆港零售非息同比增长 {{待填}}（永隆 {{待填}}，港分 {{待填}}）
 
 ## Regulatory authorities and programs (do not translate)
 

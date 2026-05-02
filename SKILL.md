@@ -40,7 +40,7 @@ Every output must follow this structure. Section headers are in Chinese because 
   （一）业绩亮点比较
     - 客户数、AUM、营收同比、非息占比、私行客户数等关键指标
     - 每家一段 150-200 字
-    - 隆港对应指标的占位符（敏感数据用 ** 标注）
+    - 隆港对应指标：用用户提供的真实数据；未提供则留 {{待填}} 或 ** 占位符
   （二）可借鉴的业务策略
     1. 与我行相似之处
     2. 与我行不同之处（重点挖掘可学习点）
@@ -97,8 +97,9 @@ When parsing PDFs, extract these indicators explicitly. File `references/kpi_glo
 Follow these steps in order. Do NOT skip Step 2.
 
 ### Step 1: Identify inputs
-- Confirm which banks' PDFs you have. Match against `references/hk_banks.json` (28 canonical banks).
+- Confirm which banks' PDFs you have. Match against `references/hk_banks.json` (30 business-comparable banks).
 - Confirm the reporting period (interim 6M vs annual 12M). Mixing periods is a red flag — warn the user.
+- Confirm whether the user has supplied real CMB Wing Lung / 隆港 figures (inline, attached file, or earlier in the conversation). If yes — use them verbatim in the output. If no — leave `{{隆港_待填}}`-style placeholders for the strategy team to fill in from internal systems.
 
 ### Step 2: Extract per-bank structured data
 For each PDF, extract and store in memory as JSON:
@@ -117,13 +118,13 @@ For each PDF, extract and store in memory as JSON:
 Use `scripts/extract_pdf.py` as a utility. It uses pypdf and outputs structured JSON.
 
 ### Step 3: Build comparison matrix
-Create a wide table: rows = banks, columns = KPI. Include CMB Wing Lung column with `**` placeholders (sensitive data must be masked — this is a hard rule).
+Create a wide table: rows = banks, columns = KPI. Include a CMB Wing Lung column. Fill it with real figures if the user supplied them; otherwise leave `{{待填}}` (or `**` if mirroring the strategy team's legacy convention).
 
 ### Step 4: Draft narrative sections
 Use `references/report_template.md` as the scaffold. For each section:
 1. Open with 1-2 sentences framing the comparison
-2. Describe each bank's position in ~150-200 字
-3. Close with "与隆港对比" paragraph containing `**` placeholders
+2. Describe each bank's position in ~150-200 字 (using real figures from their public disclosures)
+3. Close with a "与隆港对比" paragraph — use real CMB Wing Lung numbers if supplied, or placeholders if not
 
 ### Step 5: Extract learnable strategies
 For each business line, group strategies into:
@@ -135,19 +136,25 @@ For each business line, group strategies into:
 Generate a `.docx` matching the sample style. Use `scripts/build_docx.py`. Key formatting rules:
 - 标题宋体 / 正文宋体 12pt
 - 表格居中、表头加粗
-- 敏感数据一律用 `**` 占位符（不许猜测隆港真实数据）
 - 文末不要加 "本报告由 AI 生成" 字样（战略团队会署名）
 
-## 5. The sacred `**` rule
+## 5. The one hard rule: don't fabricate
 
-**Any number, growth rate, ranking, or qualitative claim about 招商永隆 / 隆港 / 港分 / 永隆 / 我行 that was not explicitly provided in the user's message MUST be replaced with `**`.**
+The only non-negotiable: **never invent a number, growth rate, ranking, or qualitative claim that wasn't in a source you were given.**
 
-This is non-negotiable. The downstream consumer is a strategy team that fills in real numbers from internal systems. Fabricating CMB Wing Lung data — even as a plausible estimate — causes downstream trust failure.
+This applies equally to peer banks and to CMB Wing Lung / 隆港:
+- **Peer banks** — use the figures in their PDFs. Cite page numbers.
+- **CMB Wing Lung / 隆港** — if the user supplied real figures (in the chat, an attached doc, or internal system data), use them verbatim. If not, leave a clearly-marked placeholder like `{{隆港营收同比_待填}}` or `**` so the strategy team can fill it.
 
-Correct:
-> 永隆零售条线上半年营收同比增长**（永隆**，港分**），其中非息同比增长**
+> **Note on `**`:** You may see `**` heavily used in `references/sample_output_structure.md` and `references/report_template.md`. That's because those samples were *de-identified* when shared with the skill author — it is a legacy placeholder convention, **not** an enforced policy. When the user gives you real internal data, output the real data. Never downgrade real data to `**`.
 
-Incorrect:
+Correct — when user provides "隆港上半年零售营收同比 +6.2%":
+> 永隆零售条线上半年营收同比增长 6.2%…
+
+Correct — when user provides no internal data:
+> 永隆零售条线上半年营收同比增长 {{隆港零售营收_待填}}（战略团队填充）
+
+Incorrect — always:
 > 永隆零售条线上半年营收同比增长 8.5%（估算）
 
 ## 6. Tone guidelines
@@ -161,7 +168,7 @@ Incorrect:
 ## 7. Files in this skill
 
 - `SKILL.md` — you are here
-- `references/hk_banks.json` — 28 canonical HK locally-incorporated licensed banks with IR URLs
+- `references/hk_banks.json` — 30 business-comparable HK locally-incorporated licensed banks with IR URLs (derived from HKMA's list of 32)
 - `references/kpi_glossary.md` — bilingual KPI definitions and per-bank reporting conventions
 - `references/report_template.md` — the report scaffold
 - `references/sample_output_structure.md` — annotated example from CMB Wing Lung strategy team

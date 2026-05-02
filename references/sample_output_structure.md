@@ -1,6 +1,8 @@
 # Sample Output Structure (annotated)
 
-This is a de-identified skeleton of the CMB Wing Lung strategy team's actual output style. Use as a stylistic reference when drafting new reports.
+This is a **de-identified** skeleton of the CMB Wing Lung strategy team's actual output style. Use as a stylistic reference when drafting new reports.
+
+> ⚠️ **All `**` in the examples below are artifacts of de-identification.** The business team masked internal figures before sharing the sample with the skill author. In actual production use, when the user supplies real 隆港 / 永隆 / 港分 figures (via chat, attached files, or internal systems), the output report should contain the real numbers — not `**`. The only thing the skill must never do is *invent* numbers that were not supplied.
 
 ## Example opening
 
@@ -75,6 +77,6 @@ Must include footnote on 口径说明 (methodology): "各行财报披露口径�
 
 - Cite PDF page numbers when quoting specific figures
 - Preserve the four-section structure even when one section is thin
-- Use `**` liberally for CMB data
+- Use the real CMB Wing Lung / 隆港 numbers the user provides; only fall back to `**` or `{{待填}}` when no number is supplied
 - Use 一是/二是/三是 for recommendation lists
 - End each 二级 section with a 隆港 comparison paragraph

@@ -1,6 +1,8 @@
 # Report Template
 
-This is the mandatory scaffold. Fill in extracted data; preserve all `**` placeholders for CMB Wing Lung data.
+This is the mandatory scaffold. Fill in data from source PDFs (peer banks) and from whatever CMB Wing Lung / 隆港 figures the user has supplied.
+
+**Note on the `**` markers below:** they are legacy placeholders carried over from the de-identified sample the original author worked from. When the user provides real internal data, replace them with the real numbers. Only leave `**` (or `{{待填}}`) in place when no real number is available and the strategy team will fill it in downstream.
 
 ---
 

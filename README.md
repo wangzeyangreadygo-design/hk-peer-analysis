@@ -49,6 +49,11 @@ adapters/                          per-agent setup guides
 cd ~/.claude/skills/hk-peer-analysis && git pull
 ```
 
-## The sacred rule
+## The one hard rule: don't fabricate
 
-All internal figures, ratios, rankings and qualitative claims about the user's own institution must be either (a) explicitly provided by the user or (b) masked with `**`. Never fabricate — even as a "plausible estimate."
+Every number, ratio, ranking or qualitative claim in the output must be traceable to a source you were given:
+
+- **Peer banks** — cite their published disclosures (PDFs).
+- **CMB Wing Lung / 隆港** — use real figures when the user provides them; otherwise leave `{{待填}}` or `**` placeholders for the strategy team to fill downstream.
+
+Never invent a number — even as a "plausible estimate". The `**` you see in the reference samples are *de-identification artifacts* from the sample shared with the skill author, not a policy to auto-mask real data.

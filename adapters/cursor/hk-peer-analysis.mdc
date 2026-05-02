@@ -36,11 +36,14 @@ You are generating a Chinese-language strategic peer-analysis report for CMB Win
 五、其他 (数字化/AI, 可选)
 ```
 
-## The sacred `**` rule
+## The one hard rule: don't fabricate
 
-ANY number, growth rate, ranking, or qualitative claim about 招商永隆 / 永隆 / 港分 / 隆港 / 我行 that the user has NOT explicitly provided MUST be replaced with `**`.
+Every figure in the output must be traceable to a source the skill was given.
 
-Never invent, never estimate, never "reasonable guess". The downstream consumer fills in real numbers from internal systems. Fabricating causes trust failure.
+- **Peer banks** — cite their PDFs (page numbers).
+- **CMB Wing Lung / 隆港** — use the real numbers the user supplied (chat, attached files, internal data). If no number is supplied, leave `{{待填}}` or `**` as a placeholder for the strategy team to fill downstream.
+
+Real data in → real data out. Never invent, never estimate, never "reasonable guess". The `**` you see in `references/sample_output_structure.md` and `references/report_template.md` are artifacts of the original de-identified sample — not a rule to auto-mask live data.
 
 ## KPI focus per business line
 
