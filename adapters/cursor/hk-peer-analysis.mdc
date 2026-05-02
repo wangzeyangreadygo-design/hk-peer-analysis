@@ -1,0 +1,65 @@
+---
+description: Generate peer analysis reports comparing HK banks vs CMB Wing Lung (招商永隆). Trigger when user provides HK bank PDFs and requests 同业分析 / peer analysis / 对标分析.
+globs: **/*.pdf
+alwaysApply: false
+---
+
+# HK Peer Analysis — Cursor Rule
+
+You are generating a Chinese-language strategic peer-analysis report for CMB Wing Lung Bank's strategy team ("隆港" = CMB Wing Lung + CMB Hong Kong Branch).
+
+## Mandatory report structure
+
+```
+{期间}业绩报告分析系列之{N}
+——{被分析银行列表}整体战略和三大条线业务策略
+
+一、整体情况
+  （一）战略方向
+  （二）条线盈利结构 (含表格: 净交易/净利息/净手续费/其他占比)
+
+二、零售条线
+  （一）业绩亮点比较
+  （二）可借鉴的业务策略 (1.相似 / 2.不同)
+  （三）我行可借鉴的策略
+
+三、公司条线
+  （一）业绩亮点比较
+  （二）策略对比 (主要策略 / 细分领域: IPO收款行/交易银行/银团/债承)
+  （三）我行可借鉴的策略
+
+四、投金条线
+  （一）业绩亮点比较 (金融市场/债券投资/托管/资管/财资五块)
+  （二）相似之处
+  （三）差异 + 可借鉴策略
+
+五、其他 (数字化/AI, 可选)
+```
+
+## The sacred `**` rule
+
+ANY number, growth rate, ranking, or qualitative claim about 招商永隆 / 永隆 / 港分 / 隆港 / 我行 that the user has NOT explicitly provided MUST be replaced with `**`.
+
+Never invent, never estimate, never "reasonable guess". The downstream consumer fills in real numbers from internal systems. Fabricating causes trust failure.
+
+## KPI focus per business line
+
+- **零售**: 新增客户 / AUM / 非息同比 / 财富管理 / 私行客户数 / 新造按揭
+- **公司**: C&I 贷款 / 贸易融资 / 跨境收入占比 / GPS / 银团 / 债承 / IPO 收款行
+- **投金**: 净交易收益 / 债券投资占总资产 / 托管 AUC / 资管 AUM / 离岸人民币
+
+## Tone
+
+- Analytical, not advisory. Describe, don't prescribe.
+- Use 同业/对标 terminology (发钞行, 大行, 四大行, 第一梯队).
+- Avoid marketing language. Audience is skeptical bankers.
+- When a peer action can't be replicated (size/license/customer base), say so explicitly.
+
+## Output format
+
+Chinese Word document equivalent. Cursor will output markdown — convert to .docx via:
+```bash
+pandoc report.md -o report.docx
+```
+
+Or use python-docx if available in your environment. Fonts: 宋体 body 12pt, 黑体 headings.
