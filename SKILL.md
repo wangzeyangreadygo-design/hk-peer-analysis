@@ -1,6 +1,6 @@
 ---
 name: hk-peer-analysis
-description: Generate structured peer analysis reports comparing Hong Kong banks' interim/annual disclosures against CMB Wing Lung ("隆港" = CMB Wing Lung + CMB HK Branch). Use when the user provides one or more HK bank PDFs (HSBC, Standard Chartered HK, BOCHK, Hang Seng, etc.) and asks for a strategic peer analysis in the house style of CMB Wing Lung's strategy team. Output is a Chinese Word document following the fixed four-section structure: Overall Strategy → Retail → Corporate → Treasury/Investment → (optional) Digital/AI.
+description: Generate structured peer analysis reports comparing Hong Kong banks' interim/annual disclosures against 招商永隆银行 (CMB Wing Lung Bank). Use when the user provides one or more HK bank PDFs (HSBC, Standard Chartered HK, BOCHK, Hang Seng, etc.) and asks for a strategic peer analysis in the house style of CMB Wing Lung's strategy team. Output is a Chinese Word document following the fixed four-section structure: Overall Strategy → Retail → Corporate → Treasury/Investment → (optional) Digital/AI.
 ---
 
 # HK Peer Analysis Skill
@@ -9,7 +9,7 @@ description: Generate structured peer analysis reports comparing Hong Kong banks
 
 Trigger when the user's request matches any of these patterns:
 - Provides one or more HK bank disclosure PDFs (interim report, annual report, results announcement) and asks for "同业分析 / peer analysis / 对标分析 / 业绩简析"
-- Mentions CMB Wing Lung (招商永隆) or 隆港 as the comparison baseline
+- Mentions CMB Wing Lung (招商永隆 / 永隆) as the comparison baseline
 - Asks to compare HK banks (汇丰 / 渣打 / 恒生 / 中银香港 / 东亚 / ZA Bank / etc.) across strategy, retail, corporate, or treasury dimensions
 - Asks for a report "in the style of" a sample `.docx` the user provides
 
@@ -31,16 +31,16 @@ Every output must follow this structure. Section headers are in Chinese because 
 一、整体情况
   （一）战略方向
     - 逐家银行: 战略定位 + 地域重点 + 关键增长引擎（不超过 200 字/家）
-    - 与隆港对比的启示
+    - 与永隆对比的启示
   （二）条线盈利结构
     - 表格: 各行净交易收入/净利息/净手续费/其他占比
-    - 文字点评: 结构特征、与隆港差别
+    - 文字点评: 结构特征、与永隆差别
 
 二、零售条线
   （一）业绩亮点比较
     - 客户数、AUM、营收同比、非息占比、私行客户数等关键指标
     - 每家一段 150-200 字
-    - 隆港对应指标的占位符（敏感数据用 ** 标注）
+    - 永隆对应指标：用用户提供的真实数据；未提供则留 {{待填}} 占位符
   （二）可借鉴的业务策略
     1. 与我行相似之处
     2. 与我行不同之处（重点挖掘可学习点）
@@ -97,8 +97,9 @@ When parsing PDFs, extract these indicators explicitly. File `references/kpi_glo
 Follow these steps in order. Do NOT skip Step 2.
 
 ### Step 1: Identify inputs
-- Confirm which banks' PDFs you have. Match against `references/hk_banks.json` (28 canonical banks).
+- Confirm which banks' PDFs you have. Match against `references/hk_banks.json` (30 business-comparable banks).
 - Confirm the reporting period (interim 6M vs annual 12M). Mixing periods is a red flag — warn the user.
+- Confirm whether the user has supplied real 招商永隆 figures (inline, attached file, or earlier in the conversation). If yes — use them verbatim in the output. If no — leave `{{永隆_待填}}`-style placeholders for the strategy team to fill in from internal systems.
 
 ### Step 2: Extract per-bank structured data
 For each PDF, extract and store in memory as JSON:
@@ -117,13 +118,13 @@ For each PDF, extract and store in memory as JSON:
 Use `scripts/extract_pdf.py` as a utility. It uses pypdf and outputs structured JSON.
 
 ### Step 3: Build comparison matrix
-Create a wide table: rows = banks, columns = KPI. Include CMB Wing Lung column with `**` placeholders (sensitive data must be masked — this is a hard rule).
+Create a wide table: rows = banks, columns = KPI. Include a 招商永隆 column. Fill it with real figures if the user supplied them; otherwise leave `{{待填}}`.
 
 ### Step 4: Draft narrative sections
 Use `references/report_template.md` as the scaffold. For each section:
 1. Open with 1-2 sentences framing the comparison
-2. Describe each bank's position in ~150-200 字
-3. Close with "与隆港对比" paragraph containing `**` placeholders
+2. Describe each bank's position in ~150-200 字 (using real figures from their public disclosures)
+3. Close with a "与永隆对比" paragraph — use real 招商永隆 numbers if supplied, or placeholders if not
 
 ### Step 5: Extract learnable strategies
 For each business line, group strategies into:
@@ -135,19 +136,22 @@ For each business line, group strategies into:
 Generate a `.docx` matching the sample style. Use `scripts/build_docx.py`. Key formatting rules:
 - 标题宋体 / 正文宋体 12pt
 - 表格居中、表头加粗
-- 敏感数据一律用 `**` 占位符（不许猜测隆港真实数据）
 - 文末不要加 "本报告由 AI 生成" 字样（战略团队会署名）
 
-## 5. The sacred `**` rule
+## 5. The one hard rule: don't fabricate
 
-**Any number, growth rate, ranking, or qualitative claim about 招商永隆 / 隆港 / 港分 / 永隆 / 我行 that was not explicitly provided in the user's message MUST be replaced with `**`.**
+**Never invent a number, growth rate, ranking, or qualitative claim that wasn't in a source you were given.**
 
-This is non-negotiable. The downstream consumer is a strategy team that fills in real numbers from internal systems. Fabricating CMB Wing Lung data — even as a plausible estimate — causes downstream trust failure.
+- **Peer banks** — use the figures in their PDFs. Cite page numbers.
+- **招商永隆** — if the user supplied real figures, use them verbatim. If not, leave `{{永隆_待填}}` placeholders.
 
-Correct:
-> 永隆零售条线上半年营收同比增长**（永隆**，港分**），其中非息同比增长**
+Correct — when user provides "永隆上半年零售营收同比 +6.2%":
+> 永隆零售条线上半年营收同比增长 6.2%…
 
-Incorrect:
+Correct — when user provides no internal data:
+> 永隆零售条线上半年营收同比增长 {{永隆零售营收_待填}}（战略团队填充）
+
+Incorrect — always:
 > 永隆零售条线上半年营收同比增长 8.5%（估算）
 
 ## 6. Tone guidelines
@@ -161,7 +165,7 @@ Incorrect:
 ## 7. Files in this skill
 
 - `SKILL.md` — you are here
-- `references/hk_banks.json` — 28 canonical HK locally-incorporated licensed banks with IR URLs
+- `references/hk_banks.json` — 30 business-comparable HK locally-incorporated licensed banks with IR URLs (derived from HKMA's list of 32)
 - `references/kpi_glossary.md` — bilingual KPI definitions and per-bank reporting conventions
 - `references/report_template.md` — the report scaffold
 - `references/sample_output_structure.md` — annotated example from CMB Wing Lung strategy team
@@ -175,7 +179,7 @@ Incorrect:
 Once installed, invoke with:
 
 ```
-Please analyze these HK bank reports against CMB Wing Lung:
+Please analyze these HK bank reports against 招商永隆:
 [attach HSBC_interim_2025.pdf, SCB_HK_interim_2025.pdf, HangSeng_interim_2025.pdf]
 
 Output: Chinese Word document, following the standard 4-section structure.

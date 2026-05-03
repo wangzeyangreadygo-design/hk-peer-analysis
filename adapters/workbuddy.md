@@ -24,7 +24,7 @@ In WorkBuddy chat, select the `HK 同业分析助手` agent, then:
 @HK同业分析助手
 附件：[drag in HSBC/SCB/Hang Seng/BOCHK 中报 PDFs]
 期间：2025H1
-请输出标准 4 章节 Word 报告，所有隆港数据用 ** 标注
+请输出标准 4 章节 Word 报告，永隆相关数据如未提供请留 {{待填}}
 ```
 
 ## Sharing with team

@@ -1,12 +1,12 @@
 ---
-description: Generate peer analysis reports comparing HK banks vs CMB Wing Lung (招商永隆). Trigger when user provides HK bank PDFs and requests 同业分析 / peer analysis / 对标分析.
+description: Generate peer analysis reports comparing HK banks vs 招商永隆银行 (CMB Wing Lung). Trigger when user provides HK bank PDFs and requests 同业分析 / peer analysis / 对标分析.
 globs: **/*.pdf
 alwaysApply: false
 ---
 
 # HK Peer Analysis — Cursor Rule
 
-You are generating a Chinese-language strategic peer-analysis report for CMB Wing Lung Bank's strategy team ("隆港" = CMB Wing Lung + CMB Hong Kong Branch).
+You are generating a Chinese-language strategic peer-analysis report for 招商永隆银行 (CMB Wing Lung Bank) strategy team.
 
 ## Mandatory report structure
 
@@ -36,11 +36,14 @@ You are generating a Chinese-language strategic peer-analysis report for CMB Win
 五、其他 (数字化/AI, 可选)
 ```
 
-## The sacred `**` rule
+## The one hard rule: don't fabricate
 
-ANY number, growth rate, ranking, or qualitative claim about 招商永隆 / 永隆 / 港分 / 隆港 / 我行 that the user has NOT explicitly provided MUST be replaced with `**`.
+Every figure in the output must be traceable to a source the skill was given.
 
-Never invent, never estimate, never "reasonable guess". The downstream consumer fills in real numbers from internal systems. Fabricating causes trust failure.
+- **Peer banks** — cite their PDFs (page numbers).
+- **招商永隆** — use the real numbers the user supplied (chat, attached files, internal data). If no number is supplied, leave `{{待填}}`.
+
+Never invent, never estimate, never "reasonable guess".
 
 ## KPI focus per business line
 

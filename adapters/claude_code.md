@@ -5,7 +5,7 @@
 ```bash
 mkdir -p ~/.claude/skills
 cd ~/.claude/skills
-git clone https://github.com/{YOUR_ORG}/hk-peer-analysis-skill.git hk-peer-analysis
+git clone https://github.com/wangzeyangreadygo-design/hk-peer-analysis.git hk-peer-analysis
 ```
 
 Restart Claude Code. Verify registration:
@@ -45,4 +45,4 @@ pip install pypdf python-docx
 
 - **Skill not triggering**: Check `~/.claude/settings.json` — skill auto-discovery requires `enableSkillsDiscovery: true` (default).
 - **Chinese characters render as boxes in output .docx**: Install SimSun/SimHei fonts on your system, or set alternate CJK fonts in `scripts/build_docx.py`.
-- **`**` placeholders missing**: The skill enforces masking of CMB Wing Lung data. If the user explicitly provides internal figures in the prompt, those can be used — but never invented.
+- **Real 永隆 figures not appearing in output**: The skill uses whatever real data you provide (inline, attached files, or prior-turn context). If a number appears as `{{待填}}` when you expected a real figure, check whether you actually supplied it. The skill will never invent a number.

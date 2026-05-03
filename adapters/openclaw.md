@@ -18,7 +18,7 @@ OpenClaw is an open-source AI agent platform. Install as a custom skill/agent.
 
 ```bash
 openclaw skill install \
-  --repo https://github.com/{YOUR_ORG}/hk-peer-analysis-skill \
+  --repo https://github.com/wangzeyangreadygo-design/hk-peer-analysis \
   --name hk-peer-analysis
 ```
 
@@ -27,7 +27,7 @@ openclaw skill install \
 If your OpenClaw version supports it:
 
 ```
-openclaw://install?skill=https://raw.githubusercontent.com/{YOUR_ORG}/hk-peer-analysis-skill/main/SKILL.md
+openclaw://install?skill=https://raw.githubusercontent.com/wangzeyangreadygo-design/hk-peer-analysis/main/SKILL.md
 ```
 
 Share this link in the team chat; recipients click and the skill auto-installs.

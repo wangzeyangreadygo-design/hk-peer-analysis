@@ -18,7 +18,7 @@ Once the skill is published to GitHub (see `../README.md` for publish steps), an
 
 ```bash
 mkdir -p ~/.claude/skills && cd ~/.claude/skills && \
-  git clone https://github.com/{YOUR_ORG}/hk-peer-analysis-skill.git hk-peer-analysis
+  git clone https://github.com/wangzeyangreadygo-design/hk-peer-analysis.git hk-peer-analysis
 ```
 
 Restart Claude Code. The skill auto-registers. Trigger by asking:
@@ -29,7 +29,7 @@ Restart Claude Code. The skill auto-registers. Trigger by asking:
 ```bash
 mkdir -p .cursor/rules && \
   curl -o .cursor/rules/hk-peer-analysis.mdc \
-    https://raw.githubusercontent.com/{YOUR_ORG}/hk-peer-analysis-skill/main/adapters/cursor/hk-peer-analysis.mdc
+    https://raw.githubusercontent.com/wangzeyangreadygo-design/hk-peer-analysis/main/adapters/cursor/hk-peer-analysis.mdc
 ```
 
 ### WorkBuddy / OpenClaw

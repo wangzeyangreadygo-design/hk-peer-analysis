@@ -9,7 +9,7 @@ Per-project (recommended):
 ```bash
 mkdir -p .cursor/rules
 curl -o .cursor/rules/hk-peer-analysis.mdc \
-  https://raw.githubusercontent.com/{YOUR_ORG}/hk-peer-analysis-skill/main/adapters/cursor/hk-peer-analysis.mdc
+  https://raw.githubusercontent.com/wangzeyangreadygo-design/hk-peer-analysis/main/adapters/cursor/hk-peer-analysis.mdc
 ```
 
 Global (across all projects):
@@ -17,7 +17,7 @@ Global (across all projects):
 ```bash
 mkdir -p ~/.cursor/rules
 curl -o ~/.cursor/rules/hk-peer-analysis.mdc \
-  https://raw.githubusercontent.com/{YOUR_ORG}/hk-peer-analysis-skill/main/adapters/cursor/hk-peer-analysis.mdc
+  https://raw.githubusercontent.com/wangzeyangreadygo-design/hk-peer-analysis/main/adapters/cursor/hk-peer-analysis.mdc
 ```
 
 ## Usage

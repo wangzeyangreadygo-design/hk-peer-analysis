@@ -1,6 +1,6 @@
 # Sample Output Structure (annotated)
 
-This is a de-identified skeleton of the CMB Wing Lung strategy team's actual output style. Use as a stylistic reference when drafting new reports.
+Skeleton of the CMB Wing Lung strategy team's output style. Use as a stylistic reference when drafting new reports. Where the user supplies real 永隆 figures, use them. Where no figure is supplied, leave `{{待填}}`.
 
 ## Example opening
 
@@ -25,12 +25,12 @@ Key patterns:
 
 | | 汇丰银行 | 渣打银行 | 中银香港 | 永隆银行 |
 |---|---|---|---|---|
-| 净交易收入 | 35% | 53% | 31% | ** |
-| 净利息收入 | 47% | 31% | 63% | ** |
-| 净服务费及佣金收入 | 19% | 15% | 16% | ** |
-| 其他 | -1% | 1% | -10% | ** |
+| 净交易收入 | 35% | 53% | 31% | {{待填}} |
+| 净利息收入 | 47% | 31% | 63% | {{待填}} |
+| 净服务费及佣金收入 | 19% | 15% | 16% | {{待填}} |
+| 其他 | -1% | 1% | -10% | {{待填}} |
 
-永隆银行那一列全部是 `**`。
+永隆列用用户提供的真实数据填入；未提供则留 `{{待填}}`。
 
 ## Example retail highlights paragraph (Section 二.（一）)
 
@@ -41,25 +41,25 @@ Pattern:
 - 具体数字带单位 (万名/美元/%)
 - 同比/环比对比 (较年初 + 同比增幅)
 
-Then 隆港段:
-> 永隆零售条线上半新增客户**，较年初增长**，预计隆港**。隆港零售AUM较年初增长**（永隆**，港分**），其中财富管理AUM较年初增长**（永隆**，港分**）。
+Then 永隆段:
+> 永隆零售条线上半年新增客户 {{待填}}，较年初增长 {{待填}}。零售 AUM 较年初增长 {{待填}}，其中财富管理 AUM 较年初增长 {{待填}}。
 
 ## Example action paragraph (Section 二.（三）)
 
-> 一是**。我行**；同时**。
-> 二是发挥我行**优势，将重点放在**。相对于香港四大行，**...
-> 三是在零售和公司业务联动方面，可以考虑参考恒生**的策略...
+> 一是加大数字化获客投入，提升线上理财 AUM 转化率。我行可借鉴恒生 Mobile Banking 端财富产品组合推荐算法，结合招行集团 App 能力，在三个月内完成首轮灰度测试。
+> 二是发挥我行跨境代发优势，将重点放在大湾区新移民与跨境就业人群。相对于香港四大行庞大的零售网点覆盖，我行差异化聚焦中小型高净值与新移民客群，更具投入产出比。
+> 三是在零售和公司业务联动方面，可以考虑参考恒生"薪转代发 + 子女教育金 + 企业主私行"的协同策略，实现从 C&I 客户到其高管、员工的纵向穿透。
 
-Three-point structure with 一是/二是/三是 prefixes. `**` placeholders allow the strategy team to fill in actual recommendations post-generation.
+Three-point structure with 一是/二是/三是 prefixes. Each point states a concrete action, its rationale, and the reference peer (if any).
 
 ## Bond investment table example (Section 四.（一）.2)
 
 | | 汇丰银行 | 渣打银行 | 恒生 | 中银香港 | 永隆 |
 |---|---|---|---|---|---|
-| 客户贷款占比 2024 | 32% | 37% | 46% | 40% | ** |
-| 客户贷款占比 2025H1 | 31% | 35% | 44% | 39% | ** |
-| 债券投资占比 2024 | 41% | 28% | 38% | 34% | ** |
-| 债券投资占比 2025H1 | 42% | 30% | 37% | 39% | ** |
+| 客户贷款占比 2024 | 32% | 37% | 46% | 40% | {{待填}} |
+| 客户贷款占比 2025H1 | 31% | 35% | 44% | 39% | {{待填}} |
+| 债券投资占比 2024 | 41% | 28% | 38% | 34% | {{待填}} |
+| 债券投资占比 2025H1 | 42% | 30% | 37% | 39% | {{待填}} |
 
 Must include footnote on 口径说明 (methodology): "各行财报披露口径不一，本表格取数为..."
 
@@ -75,6 +75,6 @@ Must include footnote on 口径说明 (methodology): "各行财报披露口径�
 
 - Cite PDF page numbers when quoting specific figures
 - Preserve the four-section structure even when one section is thin
-- Use `**` liberally for CMB data
+- Use the real 招商永隆 numbers the user provides; fall back to `{{待填}}` when no number is supplied
 - Use 一是/二是/三是 for recommendation lists
-- End each 二级 section with a 隆港 comparison paragraph
+- End each 二级 section with a 永隆对比 paragraph
